@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 
 class CreateTaskService
 {
+    private $request;
+
     public function __construct($request)
     {
         $this->request = $request;
@@ -29,10 +31,10 @@ class CreateTaskService
             return formatResponse(null, $validator->errors());
         }
 
-        $task = Task::create([
-            'name' => $this->request->input('task')
+        Task::create([
+            'task' => $this->request->input('task')
         ]);
 
-        return formatResponse($task->id);
+        return formatResponse();
     }
 }

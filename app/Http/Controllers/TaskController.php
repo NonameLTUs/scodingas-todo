@@ -13,7 +13,7 @@ class TaskController extends Controller
         return formatResponse(Task::get()->only(['id', 'task']));
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         return (new CreateTaskService($request))->index();
     }
