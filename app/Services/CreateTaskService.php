@@ -27,8 +27,8 @@ class CreateTaskService
     public function index()
     {
         $validator = $this->makeValidator();
-        if ( ! $validator->validate()) {
-            return formatResponse(null, $validator->errors());
+        if ($validator->fails()) {
+            return formatResponse(null, $validator->errors()->all());
         }
 
         Task::create([
