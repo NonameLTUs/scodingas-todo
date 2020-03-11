@@ -23,4 +23,11 @@ class TaskController extends Controller
     {
         return (new UpdateTaskService($request, $id))->index();
     }
+
+    public function destroy(Request $request, $id)
+    {
+        Task::destroy($id);
+
+        return formatResponse();
+    }
 }
