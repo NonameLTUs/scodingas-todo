@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('tasks', 'TaskController')->only(['index', 'create', 'update', 'destroy']);
+Route::resource('tasks', 'TaskController')->only(['index', 'store', 'update', 'destroy']);

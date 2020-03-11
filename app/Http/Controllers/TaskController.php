@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return formatResponse(Task::get()->only(['id', 'name']));
+        return formatResponse(Task::get()->only(['id', 'task']));
     }
 
     public function create(Request $request)

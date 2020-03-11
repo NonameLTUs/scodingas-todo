@@ -14,9 +14,9 @@ class CreateTaskService
 
     private function makeValidator()
     {
-        $inputs = $this->request->only(['name']);
+        $inputs = $this->request->only(['task']);
         $rules  = [
-            'name' => 'required|min:3|max:255|unique:tasks'
+            'task' => 'required|min:3|max:255|unique:tasks'
         ];
 
         return Validator::make($inputs, $rules);
@@ -30,7 +30,7 @@ class CreateTaskService
         }
 
         $task = Task::create([
-            'name' => $this->request->input('name')
+            'name' => $this->request->input('task')
         ]);
 
         return formatResponse($task->id);
