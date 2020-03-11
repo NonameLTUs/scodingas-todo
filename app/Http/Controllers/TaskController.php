@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return formatResponse(Task::get()->only(['id', 'task']));
+        return formatResponse(Task::get(['id', 'task']));
     }
 
     public function store(Request $request)
